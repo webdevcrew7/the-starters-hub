@@ -1,0 +1,17 @@
+import { Inter } from 'next/font/google';
+import './globals.css';
+
+const inter = Inter({ subsets: ['latin'] });
+
+export const metadata = {
+    title: 'KitchenCloud - Premium Food Delivery',
+    description: 'Gourmet meals delivered to your doorstep.',
+};
+
+export default function RootLayout({ children }) {
+    return (
+        <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+            <body className={inter.className} suppressHydrationWarning>{children}</body>
+        </html>
+    );
+}
