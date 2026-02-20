@@ -1,0 +1,81 @@
+import Image from 'next/image';
+import { Star, ChevronRight } from 'lucide-react';
+
+export default function Hero() {
+    return (
+        <section className="pt-28 pb-16 px-6 relative overflow-hidden mobile-compact-hero">
+            <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+                {/* Left Content */}
+                <div className="space-y-8 relative z-10">
+                    <div className="inline-block px-4 py-2 bg-orange-500/10 text-orange-400 rounded-full text-sm font-bold backdrop-blur-sm border border-orange-500/20">
+                        🔥 Fire-Grilled Flavors, Delivered Fast
+                    </div>
+                    <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.1]">
+                        <span className="text-white">Indo-Chinese </span><br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-yellow-400">
+                            Starter Specials
+                        </span>
+                    </h1>
+                    <p className="text-lg text-gray-400 max-w-md leading-relaxed hidden md:block">
+                        Sizzling chicken 65, crispy pakodas, fiery manchurian & more — bold Indo-Chinese flavors crafted fresh and delivered hot to your door.
+                    </p>
+
+                    <div className="flex flex-wrap gap-4">
+                        <a href="#menu" className="px-8 py-4 bg-gradient-to-r from-red-600 via-orange-500 to-yellow-500 text-white rounded-full font-bold shadow-lg shadow-orange-600/30 hover:shadow-orange-500/50 hover:scale-105 transition-all flex items-center gap-2">
+                            View Menu <ChevronRight size={18} />
+                        </a>
+                    </div>
+
+                    <div className="flex items-center gap-6 pt-4 flex-wrap">
+                        <div className="flex items-center gap-2">
+                            <span className="text-orange-400 font-bold text-xl">⭐ 4.9</span>
+                            <span className="text-gray-500 text-sm">Rating</span>
+                        </div>
+                        <div className="w-px h-6 bg-white/10"></div>
+                        <div className="flex items-center gap-2">
+                            <span className="text-white font-bold text-xl">2.5k+</span>
+                            <span className="text-gray-500 text-sm">Happy Customers</span>
+                        </div>
+                        <div className="w-px h-6 bg-white/10"></div>
+                        <a href="tel:+918885067767" className="text-orange-400 font-bold text-sm hover:underline">
+                            📞 8885067767
+                        </a>
+                    </div>
+                </div>
+
+                {/* Right Image - Chicken 65 / Indo-Chinese Starters */}
+                <div className="relative z-10 flex justify-center lg:justify-end">
+                    <div className="relative w-[350px] h-[350px] md:w-[500px] md:h-[500px]">
+                        {/* Glowing background circle */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-red-600/30 via-orange-500/20 to-yellow-500/10 rounded-full blur-3xl transform scale-110 animate-pulse"></div>
+
+                        <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-orange-500/20 shadow-2xl shadow-orange-900/30">
+                            <Image
+                                src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1000&q=80"
+                                alt="Crispy Chicken Starters"
+                                fill
+                                className="object-cover transform hover:scale-110 transition-transform duration-700 ease-out"
+                                priority
+                            />
+                            {/* Fire overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                        </div>
+
+                        {/* Floating Badge */}
+                        <div className="absolute bottom-10 -left-4 md:left-0 p-4 flex items-center gap-3 animate-bounce z-20 bg-black/70 backdrop-blur-xl border border-orange-500/20 rounded-2xl shadow-lg shadow-black/40">
+                            <div className="bg-orange-500/20 p-2 rounded-full text-orange-400">
+                                <Star fill="currentColor" size={20} />
+                            </div>
+                            <div>
+                                <p className="font-bold text-white text-sm">Bestseller</p>
+                                <p className="text-xs text-gray-500">Chicken 65</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    );
+}
