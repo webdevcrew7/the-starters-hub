@@ -51,8 +51,8 @@ export default function MenuSection() {
                     <button
                         onClick={() => setVegOnly(v => !v)}
                         className={`flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${vegOnly
-                                ? 'bg-green-500/20 border-green-500/60 text-green-400 shadow-lg shadow-green-900/20'
-                                : 'bg-white/5 border-white/10 text-gray-500 hover:border-green-500/40 hover:text-green-500'
+                            ? 'bg-green-500/20 border-green-500/60 text-green-400 shadow-lg shadow-green-900/20'
+                            : 'bg-white/5 border-white/10 text-gray-500 hover:border-green-500/40 hover:text-green-500'
                             }`}
                         aria-pressed={vegOnly}
                     >
@@ -86,29 +86,25 @@ export default function MenuSection() {
                                 {/* Item List */}
                                 <div className="divide-y divide-white/5">
                                     {group.items.map((item) => {
-                                        const waUrl = `${WHATSAPP_BASE}${encodeURIComponent(`Hi! I'd like to order: ${item.name} (₹${item.price})`)}`;
+                                        const waUrl = `${WHATSAPP_BASE}${encodeURIComponent(`Hi! I'd like to order: ${item.name}`)}`;
                                         return (
                                             <div
                                                 key={item.id}
                                                 className="flex items-center justify-between px-6 py-3 hover:bg-white/5 transition-colors group"
                                             >
                                                 <div className="flex items-center gap-3 min-w-0">
-                                                    <span className={`w-2 h-2 rounded-full flex-shrink-0 ${item.category === 'veg' ? 'bg-green-500' : 'bg-red-500'
-                                                        }`}></span>
+                                                    <span className={`w-2 h-2 rounded-full flex-shrink-0 ${item.isVeg ? 'bg-green-500' : 'bg-red-500'}`}></span>
                                                     <span className="text-gray-200 font-medium text-sm truncate">
                                                         {item.name}
                                                     </span>
                                                 </div>
                                                 <div className="flex items-center gap-4 flex-shrink-0">
-                                                    <span className="text-orange-400 font-bold text-sm">
-                                                        ₹{item.price}
-                                                    </span>
                                                     <a
                                                         href={waUrl}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         className="w-7 h-7 rounded-full bg-gradient-to-br from-red-600 via-orange-500 to-yellow-500 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:scale-110"
-                                                        aria-label={`Order ${item.name}`}
+                                                        aria-label={`Order ${item.name} `}
                                                     >
                                                         <Plus size={14} />
                                                     </a>

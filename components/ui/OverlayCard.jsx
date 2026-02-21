@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import { Leaf, Flame, Star, Plus } from 'lucide-react';
+import { Leaf, Flame, Plus } from 'lucide-react';
 
 export default function OverlayCard({ item }) {
-    const isVeg = item.category === 'veg';
-    const whatsappUrl = `https://wa.me/918885067767?text=${encodeURIComponent(`Hi! I'd like to order: ${item.name} (₹${item.price})`)}`;
+    const isVeg = item.isVeg;
+    const badgeLabel = isVeg ? 'Veg' : 'Non-Veg';
+    const whatsappUrl = `https://wa.me/918885067767?text=${encodeURIComponent(`Hi! I'd like to order: ${item.name}`)}`;
 
     return (
         <div className="overlay-card">
@@ -19,13 +20,12 @@ export default function OverlayCard({ item }) {
             {/* Category Badge */}
             <span className={`card-badge ${isVeg ? 'veg' : 'non-veg'}`}>
                 {isVeg ? <Leaf size={10} className="inline mr-1" /> : <Flame size={10} className="inline mr-1" />}
-                {item.category}
+                {badgeLabel}
             </span>
 
             {/* Content Overlay */}
             <div className="card-content">
                 <h3 className="card-title line-clamp-2">{item.name}</h3>
-                <p className="card-price">₹{item.price}</p>
             </div>
 
             {/* Add/Order Button → WhatsApp */}
