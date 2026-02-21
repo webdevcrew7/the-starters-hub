@@ -42,7 +42,7 @@ export default function FeatureSection() {
                                 ))}
                             </ul>
                             <div className="pt-2 flex items-center gap-4">
-                                <span className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">₹240</span>
+
                                 <a
                                     href="https://wa.me/918885067767?text=Hi!%20I'd%20like%20to%20order%20Chicken%2065%20(₹240)"
                                     target="_blank"
