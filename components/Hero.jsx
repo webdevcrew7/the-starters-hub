@@ -1,7 +1,34 @@
+'use client';
+
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { Star, ChevronRight } from 'lucide-react';
+import { MENU_ITEMS } from '@/data/menuItems';
+
+// Curated bestseller slides for the hero
+const HERO_SLIDES = [
+    MENU_ITEMS.find(i => i.name === "Garlic Chicken Fry"),
+    MENU_ITEMS.find(i => i.name === "French Fries"),
+    MENU_ITEMS.find(i => i.name === "Chicken Lollipop (4 pcs)"),
+    MENU_ITEMS.find(i => i.name === "Chicken Manchurian"),
+    MENU_ITEMS.find(i => i.name === "Egg Manchurian"),
+    MENU_ITEMS.find(i => i.name === "Chef Special"),
+].filter(Boolean);
 
 export default function Hero() {
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const nextSlide = useCallback(() => {
+        setActiveIndex(prev => (prev + 1) % HERO_SLIDES.length);
+    }, []);
+
+    useEffect(() => {
+        const timer = setInterval(nextSlide, 4000);
+        return () => clearInterval(timer);
+    }, [nextSlide]);
+
+    const current = HERO_SLIDES[activeIndex];
+
     return (
         <section className="pt-28 pb-16 px-6 relative overflow-hidden mobile-compact-hero">
             <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
@@ -44,32 +71,51 @@ export default function Hero() {
                     </div>
                 </div>
 
-                {/* Right Image - Chicken 65 / Indo-Chinese Starters */}
+                {/* Right Image - Rotating Slideshow */}
                 <div className="relative z-10 flex justify-center lg:justify-end">
                     <div className="relative w-[350px] h-[350px] md:w-[500px] md:h-[500px]">
                         {/* Glowing background circle */}
                         <div className="absolute inset-0 bg-gradient-to-br from-red-600/30 via-orange-500/20 to-yellow-500/10 rounded-full blur-3xl transform scale-110 animate-pulse"></div>
 
                         <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-orange-500/20 shadow-2xl shadow-orange-900/30">
-                            <Image
-                                src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1000&q=80"
-                                alt="Crispy Chicken Starters"
-                                fill
-                                className="object-cover transform hover:scale-110 transition-transform duration-700 ease-out"
-                                priority
-                            />
+                            {/* All slides stacked, blur dissolve transition */}
+                            {HERO_SLIDES.map((slide, index) => (
+                                <div
+                                    key={slide.id}
+                                    className="absolute inset-0 transition-all duration-1000 ease-in-out"
+                                    style={{
+                                        opacity: index === activeIndex ? 1 : 0,
+                                        filter: index === activeIndex ? 'blur(0px)' : 'blur(18px)',
+                                        transform: index === activeIndex ? 'scale(1)' : 'scale(1.08)',
+                                    }}
+                                >
+                                    <Image
+                                        src={slide.image}
+                                        alt={slide.name}
+                                        fill
+                                        className="object-cover"
+                                        priority={index === 0}
+                                        sizes="(max-width: 768px) 350px, 500px"
+                                    />
+                                </div>
+                            ))}
                             {/* Fire overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10"></div>
                         </div>
 
-                        {/* Floating Badge */}
+                        {/* Floating Bestseller Badge — shows current item name */}
                         <div className="absolute bottom-10 -left-4 md:left-0 p-4 flex items-center gap-3 animate-bounce z-20 bg-black/70 backdrop-blur-xl border border-orange-500/20 rounded-2xl shadow-lg shadow-black/40">
                             <div className="bg-orange-500/20 p-2 rounded-full text-orange-400">
                                 <Star fill="currentColor" size={20} />
                             </div>
                             <div>
                                 <p className="font-bold text-white text-sm">Bestseller</p>
-                                <p className="text-xs text-gray-500">Chicken 65</p>
+                                <p
+                                    className="text-xs text-gray-500 transition-opacity duration-500"
+                                    key={current.id}
+                                >
+                                    {current.name}
+                                </p>
                             </div>
                         </div>
                     </div>
