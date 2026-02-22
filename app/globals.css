@@ -396,7 +396,7 @@ body {
     height: 100%;
     border-radius: 3px;
     background: linear-gradient(90deg, #ef4444, #f97316, #eab308);
-    animation: barFill 2.5s ease-in-out forwards;
+    animation: barFill 2s ease-in-out forwards;
 }
 
 @keyframes barFill {

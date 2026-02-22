@@ -1,14 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     compress: true,
-    images: {
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'images.unsplash.com',
-            },
-        ],
-    },
+    poweredByHeader: false,
+    reactStrictMode: true,
 }
 
 module.exports = nextConfig

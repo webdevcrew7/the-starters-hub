@@ -14,6 +14,7 @@ export default function OverlayCard({ item }) {
                 fill
                 className="card-image"
                 sizes="(max-width: 768px) 50vw, 33vw"
+                loading="lazy"
             />
             <div className="card-gradient"></div>
 

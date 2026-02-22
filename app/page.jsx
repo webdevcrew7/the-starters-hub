@@ -1,12 +1,14 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import dynamic from 'next/dynamic';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import MenuSection from '@/components/MenuSection';
-import FeatureSection from '@/components/FeatureSection';
-import Footer from '@/components/Footer';
 import Preloader from '@/components/Preloader';
+
+const MenuSection = dynamic(() => import('@/components/MenuSection'));
+const FeatureSection = dynamic(() => import('@/components/FeatureSection'));
+const Footer = dynamic(() => import('@/components/Footer'));
 
 export default function Home() {
     const [loading, setLoading] = useState(true);

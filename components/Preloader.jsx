@@ -8,11 +8,11 @@ export default function Preloader({ onComplete }) {
     const [hidden, setHidden] = useState(false);
 
     useEffect(() => {
-        const fadeTimer = setTimeout(() => setFadeOut(true), 2500);
+        const fadeTimer = setTimeout(() => setFadeOut(true), 1500);
         const hideTimer = setTimeout(() => {
             setHidden(true);
             onComplete?.();
-        }, 3000);
+        }, 2000);
 
         return () => {
             clearTimeout(fadeTimer);

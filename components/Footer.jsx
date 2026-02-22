@@ -49,7 +49,7 @@ export default function Footer() {
                 </div>
 
                 <p className="text-center mt-4 text-gray-700 text-xs">
-                    © 2025 <span className="text-orange-400">The Starters Hub</span>. All rights reserved.
+                    © 2026 <span className="text-orange-400">The Starters Hub</span>. All rights reserved.
                 </p>
             </div>
         </footer>
