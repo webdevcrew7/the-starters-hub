@@ -32,7 +32,7 @@ export default function Footer() {
 
                     {/* Middle: Location block */}
                     <div className="flex justify-center border-y border-white/10 md:border-y-0 md:border-x py-4 my-2 md:py-0 md:my-0 md:px-6 w-full md:w-auto shrink-0 md:flex-none">
-                        <div className="w-full max-w-[320px] md:w-[260px] h-[90px] rounded-xl overflow-hidden border border-white/10 relative group bg-gray-900 isolate">
+                        <div className="w-full max-w-[460px] md:w-[360px] h-[180px] rounded-xl overflow-hidden border border-white/10 relative group bg-gray-900 isolate">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7609.602059717897!2d78.3846348370164!3d17.517009006205427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb8f003e314325%3A0x7ec01f7a5f2a6f3a!2sThe%20Starters%20Hub!5e1!3m2!1sen!2sin!4v1771743171190!5m2!1sen!2sin"
                                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity pointer-events-none"

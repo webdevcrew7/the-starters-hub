@@ -15,11 +15,20 @@ export const metadata = {
         siteName: 'The Starters Hub',
         locale: 'en_IN',
         type: 'website',
+        images: [
+            {
+                url: '/assets/logos/s-hub.png',
+                width: 800,
+                height: 800,
+                alt: 'The Starters Hub Logo',
+            },
+        ],
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Indo-Chinese Specials | Veg & Non-Veg Starters ',
         description: 'Taste that sparks your cravings with sizzle, spice & satisfaction. Order hot to your door.',
+        images: ['/assets/logos/s-hub.png'],
     },
     robots: {
         index: true,
