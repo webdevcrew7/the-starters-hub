@@ -34,27 +34,31 @@ export default function Navbar() {
                     }`}
                 style={{ height: '68px' }}
             >
-                {/* Logo — no text, logo already has brand name */}
-                {/* Desktop: normal left-aligned logo */}
-                <a href="#" className="hidden md:block flex-shrink-0 relative w-20 h-20 drop-shadow-[0_0_10px_rgba(249,115,22,0.25)]">
-                    <Image
-                        src="/assets/logos/s-hub.png"
-                        alt="The Starters Hub"
-                        fill
-                        className="object-contain"
-                        priority
-                    />
-                </a>
-                {/* Mobile: absolutely centered logo */}
-                <a href="#" className="md:hidden absolute left-1/2 -translate-x-1/2 relative w-[72px] h-[72px] drop-shadow-[0_0_10px_rgba(249,115,22,0.25)]">
-                    <Image
-                        src="/assets/logos/s-hub.png"
-                        alt="The Starters Hub"
-                        fill
-                        className="object-contain"
-                        priority
-                    />
-                </a>
+                {/* Floating Logo - Desktop */}
+                <div className="hidden md:block w-[80px] shrink-0">
+                    <a href="#" className="absolute top-[66%] -translate-y-1/2 -left-5 w-[130px] h-[130px] drop-shadow-[0_0_20px_rgba(249,115,22,0.5)] z-[60] hover:scale-105 transition-transform">
+                        <Image
+                            src="/assets/logos/s-hub.png"
+                            alt="The Starters Hub"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
+                    </a>
+                </div>
+
+                {/* Floating Logo - Mobile */}
+                <div className="md:hidden w-[60px] shrink-0">
+                    <a href="#" className="absolute left-1/2 -translate-x-1/2 top-[60%] -translate-y-1/2 w-[110px] h-[110px] drop-shadow-[0_0_15px_rgba(249,115,22,0.5)] z-[60]">
+                        <Image
+                            src="/assets/logos/s-hub.png"
+                            alt="The Starters Hub"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
+                    </a>
+                </div>
 
                 {/* Center Nav Links (Desktop) */}
                 <div className="hidden md:flex items-center gap-1">

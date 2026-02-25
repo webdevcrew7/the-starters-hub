@@ -29,7 +29,7 @@ export default function OverlayCard({ item }) {
                 <h3 className="card-title line-clamp-2">{item.name}</h3>
             </div>
 
-            {/* Add/Order Button → WhatsApp */}
+            {/* Add/Order Button → WhatsApp
             <a
                 href={whatsappUrl}
                 target="_blank"
@@ -38,7 +38,7 @@ export default function OverlayCard({ item }) {
                 aria-label={`Order ${item.name}`}
             >
                 <Plus size={16} />
-            </a>
+            </a> */}
         </div>
     );
 }
