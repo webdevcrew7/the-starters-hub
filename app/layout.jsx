@@ -34,15 +34,32 @@ export const metadata = {
         index: true,
         follow: true,
     },
+    // Favicons for various platforms; put actual files into /public
+    icons: {
+        icon: '/favicon.ico',
+        shortcut: '/favicon.ico',
+        apple: '/favicon.ico',
+        other: [
+            { rel: 'icon', url: '/favicon.png', type: 'image/png' },
+            { rel: 'icon', url: '/assets/logos/s-hub.png', type: 'image/png' },
+        ],
+    },
 };
 
 export const viewport = {
     themeColor: '#0d0705',
 };
 
+// NOTE: a proper favicon.ico should be generated from your PNG and placed in /public.
+// you can use `magick convert public/favicon.png public/favicon.ico` or a web tool.
+
 export default function RootLayout({ children }) {
     return (
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+            <head>
+                {/* explicit fallback link, metadata.icons also generates tags */}
+                <link rel="icon" href="/favicon.ico" />
+            </head>
             <body className={inter.className} suppressHydrationWarning>{children}</body>
         </html>
     );
